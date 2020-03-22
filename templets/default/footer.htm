@@ -1,0 +1,63 @@
+<div id="footer">
+  <div class="container">
+    <div id="wechat" class="wow fadeInRight">
+      <div class="wechat_img"><img src='/skin/img/ewm.jpg' width='0' height='0' alt=''></div>
+      <div class="wechat_txt"><img src="/skin/img/phone.jpg" /><span>扫一扫关注</span></div>
+    </div>
+    <div class="footer_con wow fadeInLeft"> <span>{dede:global.cfg_powerby/} </span><span>地址：{dede:global.cfg_dz/} &nbsp;&nbsp;</span> <span>电话：{dede:global.cfg_dh/}</span> <span>传真：{dede:global.cfg_cz/}&nbsp;&nbsp;</span> <span>邮箱：{dede:global.cfg_yx/}</span>
+      <div class="foot-flink">友情链接：{dede:flink titlelen='40' row='24' type='text'}  [field:link /]  {/dede:flink}<!--link start-->&nbsp;&nbsp;<!--link end--></div>
+    </div>
+  </div>
+</div>
+<div class="clear"></div>
+<!---电脑右侧漂浮开始-->
+<div id="toolbar">
+  <ul>
+    <li class="toolbar_item"> <a class="t_item t1" href="javascript:void(0);"><i></i></a>
+      <div class="tool_qq">
+        <div class="tool_qq_con">
+          <div><a href="http://wpa.qq.com/msgrd?v=3&uin={dede:global.cfg_QQ/}&site=qq&menu=yes" target="_blank"><img border="0" src="/skin/img/15f7bd1a9b694f5db83a712d6eccf80d.gif" alt="{dede:global.cfg_QQ/}"></a></div>
+        </div>
+      </div>
+    </li>
+    <li class="toolbar_item"> <a class="t_item t2" href="javascript:void(0);"><i></i></a>
+      <div class="tool_weixin">
+        <div class="t_wx_con"> <img src='/skin/img/ewm.jpg' width='80' height='80' alt=''><br/>
+          扫码关注我们 </div>
+      </div>
+    </li>
+    <li class="toolbar_item" id="gotop"> <a class="t_item t4" href="javascript:void(0);"><i></i></a> </li>
+  </ul>
+</div>
+<script>
+$(function(){
+//bar
+$(".toolbar_item").hover(function(){
+	$(this).find(".tool_qq").show();			  
+	$(this).find(".tool_tel").animate({left:"-160px"},"fast",function(){});							  
+	$(this).find(".tool_weixin").show();
+	$(this).find(".t_item").addClass("cur")
+},function(){
+	$(this).find(".tool_qq").hide();
+	$(this).find(".tool_tel").animate({left:"0px"},"fast",function(){});	
+	$(this).find(".tool_weixin").hide();
+	$(this).find(".t_item").removeClass("cur")
+});
+//返回顶部
+$("#gotop").click(function(){
+$("html,body").animate({scrollTop:0});
+});
+//end
+});
+</script> 
+<!---电脑右侧漂浮结束-->
+
+</div>
+<div class="clear"></div>
+<div class="blank55"></div>
+<div id="toolbar2">
+  <li><a href="/"><span class="icon-home"></span>首页</a></li>
+  <li><a href="tel:{dede:global.cfg_dh/}"><span class="icon-phone"></span>电话</a></li>
+  <li><a href="sms:{dede:global.cfg_dh/}"><span class="icon-envelope"></span>短信</a></li>
+  <li>{dede:type typeid='6'}<a href="[field:typelink/]"><span class="icon-user"></span>联系</a>{/dede:type}</li>
+</div>

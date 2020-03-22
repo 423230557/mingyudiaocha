@@ -1,0 +1,40 @@
+<nav id="cd-lateral-nav">
+  <ul class="cd-navigation">
+    <li><a {dede:field name=typeid runphp="yes"}(@me=="")? @me=" class='current' ":@me="";{/dede:field} href='/'>网站首页</a></li>
+    {dede:channelartlist typeid='top' currentstyle='current'}
+    <li {dede:field name=typeid runphp="yes"} 
+      global $dsql; $sql = "SELECT id From `#@__arctype` WHERE reid='@me' And ishidden<>1 order by sortrank asc limit 0, 100 ";$row = $dsql->GetOne($sql); 
+      @me=is_array($row)?'class="item-has-children"':'class=""';{/dede:field}><a class='{dede:field.currentstyle/}'  href='{dede:field name='typeurl'/}'>{dede:field name='typename'/}</a>
+      <ul class='sub-menu'>
+        {dede:channel type='son' noself='yes'}
+        <li><a id="lsed"  href='[field:typeurl/]' title="[field:typename/]">[field:typename/]</a></li>
+        {/dede:channel}
+      </ul>
+    </li>
+    {/dede:channelartlist}
+  </ul>
+</nav>
+<header id="header">
+  <div class="container">
+    <div id="logo"><a href="/" ><img src="/skin/img/logo.png"/></a></div>
+    <div class="top_des">{dede:global.cfg_tb/}</div>
+    <div class="tel"><span class="a">联系电话</span><span class="b">{dede:global.cfg_dh/}</span></div>
+    <a id="cd-menu-trigger" href="#0"><span class="cd-menu-text">Menu</span><span class="cd-menu-icon"></span></a> </div>
+</header>
+<div class="clear"></div>
+<nav id="navigate">
+  <div class="container">
+    <ul>
+      <li class="first_menu"><a {dede:field name=typeid runphp="yes"}(@me=="")? @me=" class='current' ":@me="";{/dede:field} href='/'>网站首页</a></li>
+      {dede:channelartlist typeid='top' currentstyle='current'}
+      <li><a class='{dede:field.currentstyle/}'   href='{dede:field name='typeurl'/}'>{dede:field name='typename'/}</a>
+        <ul class='drop_menu'>
+          {dede:channel type='son' noself='yes'}
+          <li><a id="lsed"  href='[field:typeurl/]' title="[field:typename/]">[field:typename/]</a></li>
+          {/dede:channel}
+        </ul>
+      </li>
+      {/dede:channelartlist}
+    </ul>
+  </div>
+</nav>
